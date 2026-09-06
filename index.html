@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Fasto — a fast, lightweight download manager built for Linux.">
+  <title>Fasto — Download Faster</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+  <canvas id="particles"></canvas>
+
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark">F</span>
+      <span>Fasto</span>
+    </a>
+
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#performance">Performance</a>
+      <a href="#browser">Browser</a>
+      <a href="#download">Download</a>
+    </nav>
+
+    <a class="nav-download" href="#download">Get Fasto</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="pill">
+          <span class="pulse"></span>
+          Built for Linux
+        </div>
+
+        <h1>
+          Downloads,
+          <span class="gradient-text">accelerated.</span>
+        </h1>
+
+        <p class="hero-text">
+          Fasto is a lightweight download manager engineered for speed,
+          resilient transfers, browser integration and modern media downloads.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-btn" href="#download">
+            Download for Linux
+            <span>↓</span>
+          </a>
+
+          <a class="secondary-btn" href="#features">
+            Explore Fasto
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>Multi-connection</span>
+          <span>Pause & Resume</span>
+          <span>HLS / DASH</span>
+          <span>Browser Capture</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+
+        <div class="download-core">
+          <div class="core-glow"></div>
+          <span class="core-letter">F</span>
+        </div>
+
+        <div class="floating-card card-speed">
+          <small>Download speed</small>
+          <strong>Fast</strong>
+          <div class="mini-line"></div>
+        </div>
+
+        <div class="floating-card card-parts">
+          <small>Connections</small>
+          <strong>32</strong>
+          <div class="segments">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="floating-card card-status">
+          <span class="status-dot"></span>
+          <div>
+            <small>Status</small>
+            <strong>Downloading</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trusted-strip">
+      <span>HTTP / HTTPS</span>
+      <span>HLS</span>
+      <span>DASH</span>
+      <span>MP4</span>
+      <span>Browser Integration</span>
+      <span>Linux Desktop</span>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">CORE FEATURES</p>
+        <h2>Everything a serious downloader needs.</h2>
+        <p>
+          Designed around speed, reliability and a clean Linux desktop experience.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card spotlight">
+          <div class="icon">⚡</div>
+          <h3>Multi-connection engine</h3>
+          <p>
+            Downloads are split into parallel segments to make better use of
+            available bandwidth.
+          </p>
+          <div class="connection-bars">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">↻</div>
+          <h3>Reliable resume</h3>
+          <p>
+            Pause transfers and continue them later with recovery logic for
+            interrupted connections.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">▶</div>
+          <h3>Media downloads</h3>
+          <p>
+            Detect and process modern HLS and DASH streams with quality-aware
+            media handling.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">◎</div>
+          <h3>Browser integration</h3>
+          <p>
+            Capture supported downloads directly from your browser and hand them
+            to Fasto.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">☷</div>
+          <h3>Queue management</h3>
+          <p>
+            Organize multiple downloads with queueing, scheduling and bulk
+            controls.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">⌁</div>
+          <h3>Smart recovery</h3>
+          <p>
+            Adaptive retry behavior helps recover from rate limits, temporary
+            network errors and interrupted transfers.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section performance" id="performance">
+      <div class="performance-copy">
+        <p class="eyebrow">PERFORMANCE</p>
+        <h2>Built to keep bandwidth busy.</h2>
+        <p>
+          Fasto combines a Rust download core with a native Linux desktop
+          interface to keep downloads responsive without unnecessary overhead.
+        </p>
+
+        <div class="stats">
+          <div>
+            <strong>32</strong>
+            <span>connection configuration</span>
+          </div>
+
+          <div>
+            <strong>Rust</strong>
+            <span>download core</span>
+          </div>
+
+          <div>
+            <strong>Live</strong>
+            <span>transfer telemetry</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="speed-panel glass">
+        <div class="panel-top">
+          <span>Transfer activity</span>
+          <span class="live">● LIVE</span>
+        </div>
+
+        <div class="graph">
+          <span style="--h:28%"></span>
+          <span style="--h:45%"></span>
+          <span style="--h:39%"></span>
+          <span style="--h:65%"></span>
+          <span style="--h:58%"></span>
+          <span style="--h:82%"></span>
+          <span style="--h:72%"></span>
+          <span style="--h:91%"></span>
+          <span style="--h:84%"></span>
+          <span style="--h:96%"></span>
+          <span style="--h:88%"></span>
+          <span style="--h:100%"></span>
+        </div>
+
+        <div class="panel-bottom">
+          <span>Parallel segmented transfer</span>
+          <strong>Active</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section browser-section" id="browser">
+      <div class="browser-window glass">
+        <div class="browser-top">
+          <span></span><span></span><span></span>
+          <div class="address">video.example.com</div>
+        </div>
+
+        <div class="video-placeholder">
+          <div class="play-button">▶</div>
+
+          <div class="fasto-overlay">
+            <div class="mini-brand">F</div>
+            <div>
+              <small>Fasto detected media</small>
+              <strong>Download this video</strong>
+            </div>
+            <span>↓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="browser-copy">
+        <p class="eyebrow">BROWSER INTEGRATION</p>
+        <h2>See it. Capture it. Download it.</h2>
+        <p>
+          Fasto's browser integration can detect supported downloads and media,
+          then send them straight to the desktop application.
+        </p>
+      </div>
+    </section>
+
+    <section class="download-section" id="download">
+      <div class="download-glow"></div>
+
+      <p class="eyebrow">FASTO FOR LINUX</p>
+      <h2>Take control of your downloads.</h2>
+      <p>
+        A fast, lightweight desktop download manager designed for modern Linux.
+      </p>
+
+      <a
+        class="primary-btn large"
+        href="https://github.com/Tanzeel0Hussain/Fasto/releases/latest"
+      >
+        Download Fasto
+        <span>↓</span>
+      </a>
+
+      <small>Linux release • More platforms planned</small>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top">
+      <span class="brand-mark">F</span>
+      <span>Fasto</span>
+    </a>
+
+    <p>Fast downloads. Less waiting.</p>
+
+    <span>© <span id="year"></span> Fasto</span>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

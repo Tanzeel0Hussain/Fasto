@@ -1,0 +1,47 @@
+name: Publish Browser Extension Release Assets
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "downloads/extension/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-extension-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout public Fasto repository
+        uses: actions/checkout@v4
+
+      - name: Verify extension files
+        run: |
+          set -eu
+          test -s downloads/extension/Fasto-Browser-Extension-v1.0.0.zip
+          test -s downloads/extension/Fasto-Browser-Extension-v1.0.0.zip.sha256
+
+      - name: Upload extension assets to Fasto v1.0.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.0.0             downloads/extension/Fasto-Browser-Extension-v1.0.0.zip             downloads/extension/Fasto-Browser-Extension-v1.0.0.zip.sha256             --clobber             --repo Tanzeel0Hussain/Fasto
+
+      - name: Verify public release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view v1.0.0             --repo Tanzeel0Hussain/Fasto             --json assets             --jq '.assets[].name'
+
+      - name: Remove temporary extension transfer files
+        run: |
+          git config user.name "Fasto Release Publisher"
+          git config user.email "actions@github.com"
+
+          git rm -r downloads/extension
+          git commit -m "Remove temporary browser extension transfer files"
+          git push origin main

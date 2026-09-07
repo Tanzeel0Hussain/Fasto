@@ -1,0 +1,52 @@
+name: Publish Windows Release Assets
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "downloads/windows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-windows-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout public Fasto repository
+        uses: actions/checkout@v4
+
+      - name: Verify Windows release files
+        run: |
+          set -eu
+
+          for file in             downloads/windows/Fasto-Setup-v1.0.0.exe             downloads/windows/Fasto-Setup-v1.0.0.exe.sha256             downloads/windows/Fasto-Windows-x86_64.zip             downloads/windows/Fasto-Windows-x86_64.zip.sha256
+          do
+            test -s "$file"
+            echo "✅ $file"
+          done
+
+      - name: Upload Windows assets to Fasto v1.0.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.0.0             downloads/windows/Fasto-Setup-v1.0.0.exe             downloads/windows/Fasto-Setup-v1.0.0.exe.sha256             downloads/windows/Fasto-Windows-x86_64.zip             downloads/windows/Fasto-Windows-x86_64.zip.sha256             --clobber             --repo Tanzeel0Hussain/Fasto
+
+      - name: Verify public release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view v1.0.0             --repo Tanzeel0Hussain/Fasto             --json assets             --jq '.assets[].name'
+
+      - name: Remove temporary transfer files from public branch
+        run: |
+          git config user.name "Fasto Release Publisher"
+          git config user.email "actions@github.com"
+
+          git rm -r downloads/windows
+
+          git commit -m "Remove temporary Windows release transfer files"
+          git push origin main

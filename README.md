@@ -130,9 +130,16 @@ sudo apt install python3 ffmpeg xdg-utils
 - Windows x86_64
 - FFmpeg / ffprobe on PATH for full media functionality
 
-## Browser integration
+## Browser extension
 
-Fasto contains browser-integration support, but the browser extension itself is distributed separately from the current desktop release assets.
+Fasto Browser Extension v1.0.0 is available as a single Chromium extension package for **Windows and Linux**:
+
+- [Fasto-Browser-Extension-v1.0.0.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Browser-Extension-v1.0.0.zip)
+- [Extension SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Browser-Extension-v1.0.0.zip.sha256)
+
+The GitHub ZIP is intended for manual/developer installation and browser-store submission. Direct one-click installation requires publication through Chrome Web Store / Edge Add-ons or another supported browser store.
+
+Fasto's native messaging bridge must also be registered on the operating system for browser-to-desktop handoff.
 
 ## Platform support
 

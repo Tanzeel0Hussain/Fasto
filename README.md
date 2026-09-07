@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  A fast, lightweight Linux download manager with multi-connection transfers, resume support, media handling, and browser integration.
+  A fast, lightweight desktop download manager for Linux and Windows with multi-connection transfers, resume support, media handling, and browser integration.
 </p>
 
 <p align="center">
@@ -20,12 +20,26 @@
 
 ## Fasto v1.0.0
 
-The first public Fasto release is available for **Linux x86_64**.
+Fasto v1.0.0 is available for **Linux x86_64** and **Windows x86_64**.
 
-### Download
+## Download
+
+### Windows
+
+Recommended installer:
+
+- [Fasto-Setup-v1.0.0.exe](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Setup-v1.0.0.exe)
+- [Installer SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Setup-v1.0.0.exe.sha256)
+
+Portable package:
+
+- [Fasto-Windows-x86_64.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Windows-x86_64.zip)
+- [Portable ZIP SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Windows-x86_64.zip.sha256)
+
+### Linux
 
 - [Fasto-Linux-x86_64.tar.gz](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Linux-x86_64.tar.gz)
-- [SHA256 checksum](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Linux-x86_64.tar.gz.sha256)
+- [Linux SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Linux-x86_64.tar.gz.sha256)
 
 ## Features
 
@@ -34,19 +48,34 @@ The first public Fasto release is available for **Linux x86_64**.
 - 🔄 Recovery for interrupted transfers
 - 📦 Queue and download management
 - 🎬 HLS and DASH media handling
-- 🌐 Native browser messaging integration
+- 🌐 Browser integration architecture
 - 🧩 Bundled yt-dlp media resolver
-- 🖥️ Modern Linux desktop interface
+- 🖥️ Native desktop builds for Linux and Windows
 - 💾 Persistent download/history data
-- 🛡️ Release package audited for private source-path and secret leakage
+- 🛡️ Release privacy checks for known private source-path/token markers
 
-## Installation
+## Windows installation
 
-### 1. Download the release
+1. Download `Fasto-Setup-v1.0.0.exe`.
+2. Run the installer.
+3. Follow the setup wizard.
+4. Launch Fasto from the Start menu or desktop shortcut if selected.
 
-Download both the archive and checksum from the [Fasto v1.0.0 release](https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.0).
+The Windows installer is built as a per-user installation and does not require administrator privileges by default.
 
-### 2. Verify the archive
+For portable use, download and extract:
+
+```text
+Fasto-Windows-x86_64.zip
+```
+
+## Linux installation
+
+### 1. Download
+
+Download the Linux archive and checksum from the [Fasto v1.0.0 release](https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.0).
+
+### 2. Verify
 
 ```bash
 sha256sum -c Fasto-Linux-x86_64.tar.gz.sha256
@@ -77,20 +106,17 @@ cd Fasto-Linux-x86_64
 fasto
 ```
 
-Fasto is installed for the current user under:
+## Media requirements
 
-```text
-~/.local/opt/fasto
-```
+Fasto bundles yt-dlp.
 
-## Requirements
+For full media merge/remux/probe functionality, FFmpeg and ffprobe should be available.
 
-For full media functionality:
+### Linux
 
 - Linux x86_64
 - Python 3.10+
-- FFmpeg
-- ffprobe
+- FFmpeg / ffprobe
 - xdg-utils
 
 Ubuntu/Debian:
@@ -99,50 +125,47 @@ Ubuntu/Debian:
 sudo apt install python3 ffmpeg xdg-utils
 ```
 
+### Windows
+
+- Windows x86_64
+- FFmpeg / ffprobe on PATH for full media functionality
+
 ## Browser integration
 
-The Linux package includes Fasto's native messaging host.
-
-The browser extension itself is distributed separately and is **not included** in the v1.0.0 Linux archive.
+Fasto contains browser-integration support, but the browser extension itself is distributed separately from the current desktop release assets.
 
 ## Platform support
 
 | Platform | Status |
 |---|---|
 | Linux x86_64 | ✅ Available |
-| Windows | ⏳ Planned |
+| Windows x86_64 | ✅ Available |
 | macOS | ⏳ Planned |
 
-The current release has been tested on Ubuntu Linux. Broader Linux distribution compatibility has not yet been fully verified.
+Linux v1.0.0 has been tested on Ubuntu Linux. Windows v1.0.0 is built and validated using a Windows x86_64 GitHub Actions runner; broader hardware/Windows-version testing will continue.
 
 ## Release contents
 
-The public Linux package includes compiled Fasto binaries, runtime libraries, installer files, bundled yt-dlp, and required license notices.
+The public release contains compiled Fasto binaries/installers, checksums, runtime files, bundled yt-dlp, and required license notices.
 
-This public repository does **not** publish the private Fasto application/core source code.
+The private Fasto application/core source code is not published in this public repository.
 
 ## Security & privacy
 
-The v1.0.0 Linux package was checked before publication for:
+Release workflows include checks designed to detect:
 
-- raw Fasto source files
-- private Git repository/build directories
-- local development username paths
+- known private repository/path markers
+- local development username/path markers
 - known GitHub token patterns
 - private key markers
-- missing shared-library dependencies
 
-The final packaged archive also passed a clean extraction and installer/runtime verification.
+The Linux package also completed clean extraction, dependency, installer, and checksum verification before publication.
 
 ## Website
-
-Visit the Fasto website:
 
 **https://tanzeel0hussain.github.io/Fasto/**
 
 ## Releases
-
-See all Fasto releases:
 
 **https://github.com/Tanzeel0Hussain/Fasto/releases**
 
@@ -150,10 +173,10 @@ See all Fasto releases:
 
 Fasto is distributed under the included **Fasto Download Manager Proprietary License**.
 
-Third-party components remain subject to their own licenses and notices included with the release package.
+Third-party components remain subject to their own licenses and notices included with release packages.
 
 ---
 
 <p align="center">
-  <strong>Fasto — Download faster on Linux.</strong>
+  <strong>Fasto — Download faster on Linux and Windows.</strong>
 </p>

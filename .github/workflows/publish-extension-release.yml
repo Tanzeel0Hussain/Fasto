@@ -1,47 +1,55 @@
-name: Publish Browser Extension Release Assets
+name: Remove Obsolete Browser Extension ZIP Assets
 
 on:
   push:
     branches:
       - main
     paths:
-      - "downloads/extension/**"
+      - ".github/workflows/publish-extension-release.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  publish-extension-release:
+  cleanup-extension-zip:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout public Fasto repository
-        uses: actions/checkout@v4
-
-      - name: Verify extension files
+      - name: Remove public extension ZIP assets from v1.0.0
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -eu
-          test -s downloads/extension/Fasto-Browser-Extension-v1.0.0.zip
-          test -s downloads/extension/Fasto-Browser-Extension-v1.0.0.zip.sha256
 
-      - name: Upload extension assets to Fasto v1.0.0
+          for name in             Fasto-Browser-Extension-v1.0.0.zip             Fasto-Browser-Extension-v1.0.0.zip.sha256
+          do
+            asset_id="$(
+              gh release view v1.0.0                 --repo Tanzeel0Hussain/Fasto                 --json assets                 --jq ".assets[] | select(.name == \"$name\") | .id"
+            )"
+
+            if [ -n "$asset_id" ]; then
+              gh api                 --method DELETE                 "repos/Tanzeel0Hussain/Fasto/releases/assets/$asset_id"
+              echo "✅ Removed $name"
+            else
+              echo "ℹ️ $name is already absent"
+            fi
+          done
+
+      - name: Verify extension ZIP assets are gone
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload v1.0.0             downloads/extension/Fasto-Browser-Extension-v1.0.0.zip             downloads/extension/Fasto-Browser-Extension-v1.0.0.zip.sha256             --clobber             --repo Tanzeel0Hussain/Fasto
+          set -eu
+          assets="$(
+            gh release view v1.0.0               --repo Tanzeel0Hussain/Fasto               --json assets               --jq '.assets[].name'
+          )"
 
-      - name: Verify public release assets
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release view v1.0.0             --repo Tanzeel0Hussain/Fasto             --json assets             --jq '.assets[].name'
+          echo "$assets"
 
-      - name: Remove temporary extension transfer files
-        run: |
-          git config user.name "Fasto Release Publisher"
-          git config user.email "actions@github.com"
+          if echo "$assets" | grep -Fq 'Fasto-Browser-Extension-v1.0.0.zip'; then
+            echo "Extension ZIP still present"
+            exit 1
+          fi
 
-          git rm -r downloads/extension
-          git commit -m "Remove temporary browser extension transfer files"
-          git push origin main
+          echo "✅ Public extension ZIP assets removed"

@@ -22,14 +22,18 @@ jobs:
         run: |
           set -eu
 
-          for name in             Fasto-Browser-Extension-v1.0.0.zip             Fasto-Browser-Extension-v1.0.0.zip.sha256
+          for name in \
+            Fasto-Browser-Extension-v1.0.0.zip \
+            Fasto-Browser-Extension-v1.0.0.zip.sha256
           do
-            asset_id="$(
-              gh release view v1.0.0                 --repo Tanzeel0Hussain/Fasto                 --json assets                 --jq ".assets[] | select(.name == \"$name\") | .id"
-            )"
-
-            if [ -n "$asset_id" ]; then
-              gh api                 --method DELETE                 "repos/Tanzeel0Hussain/Fasto/releases/assets/$asset_id"
+            if gh release view v1.0.0 \
+              --repo Tanzeel0Hussain/Fasto \
+              --json assets \
+              --jq '.assets[].name' | grep -Fxq "$name"
+            then
+              gh release delete-asset v1.0.0 "$name" \
+                --repo Tanzeel0Hussain/Fasto \
+                --yes
               echo "✅ Removed $name"
             else
               echo "ℹ️ $name is already absent"
@@ -41,14 +45,23 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -eu
+
           assets="$(
-            gh release view v1.0.0               --repo Tanzeel0Hussain/Fasto               --json assets               --jq '.assets[].name'
+            gh release view v1.0.0 \
+              --repo Tanzeel0Hussain/Fasto \
+              --json assets \
+              --jq '.assets[].name'
           )"
 
           echo "$assets"
 
-          if echo "$assets" | grep -Fq 'Fasto-Browser-Extension-v1.0.0.zip'; then
+          if echo "$assets" | grep -Fxq 'Fasto-Browser-Extension-v1.0.0.zip'; then
             echo "Extension ZIP still present"
+            exit 1
+          fi
+
+          if echo "$assets" | grep -Fxq 'Fasto-Browser-Extension-v1.0.0.zip.sha256'; then
+            echo "Extension ZIP checksum still present"
             exit 1
           fi
 

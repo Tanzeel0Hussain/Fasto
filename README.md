@@ -132,14 +132,19 @@ sudo apt install python3 ffmpeg xdg-utils
 
 ## Browser extension
 
-Fasto Browser Extension v1.0.0 is available as a single Chromium extension package for **Windows and Linux**:
+The public manual extension ZIP has been withdrawn while Fasto moves to a proper browser-installer/store distribution flow.
 
-- [Fasto-Browser-Extension-v1.0.0.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Browser-Extension-v1.0.0.zip)
-- [Extension SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Browser-Extension-v1.0.0.zip.sha256)
+The planned production experience is:
 
-The GitHub ZIP is intended for manual/developer installation and browser-store submission. Direct one-click installation requires publication through Chrome Web Store / Edge Add-ons or another supported browser store.
+1. Install Fasto on Windows or Linux.
+2. Run the Fasto Browser Integration installer.
+3. The installer detects supported Chromium browsers.
+4. The user explicitly approves extension installation in the browser.
+5. Fasto registers its native messaging bridge for browser-to-desktop handoff.
 
-Fasto's native messaging bridge must also be registered on the operating system for browser-to-desktop handoff.
+For normal consumer Chrome/Edge installations, the browser extension must be published through the supported browser store/distribution channel before the installer can complete the browser-controlled installation flow.
+
+The private extension source remains in the Fasto source repository and is not published here.
 
 ## Platform support
 

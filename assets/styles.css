@@ -692,6 +692,17 @@ a {
   color: var(--muted);
 }
 
+.extension-status {
+  cursor: default;
+  opacity: .72;
+  border-style: dashed;
+}
+
+.extension-status:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .download-section .release-note {
   position: relative;
   z-index: 1;

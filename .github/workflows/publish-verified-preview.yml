@@ -1,0 +1,44 @@
+name: Publish Verified Preview
+on:
+  push:
+    branches: [main]
+    paths: ['downloads/verified-preview/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-verified-preview
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'Tanzeel0Hussain/Fasto'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify transferred packages
+        run: |
+          set -euo pipefail
+          cd downloads/verified-preview
+          sha256sum -c SHA256SUMS.txt
+          test "$(find . -maxdepth 1 -type f | wc -l)" -eq 7
+      - name: Publish preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: Tanzeel0Hussain/Fasto
+        run: |
+          set -euo pipefail
+          TAG=v1.0.1-preview.1
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --target "$GITHUB_SHA" --draft --prerelease --title "Fasto reliability update — public preview" --notes-file downloads/verified-preview/RELEASE-NOTES.md
+          fi
+          gh release upload "$TAG" downloads/verified-preview/* --clobber
+          gh release edit "$TAG" --draft=false --prerelease --latest=false
+          gh release view "$TAG" --json assets --jq '.assets[].name'
+      - name: Remove transfer files
+        run: |
+          git config user.name "Fasto Release Publisher"
+          git config user.email "actions@github.com"
+          git rm -r downloads/verified-preview
+          git commit -m "Remove preview transfer files after publishing"
+          git pull --rebase origin main
+          git push origin main

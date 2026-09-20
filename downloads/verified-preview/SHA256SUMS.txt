@@ -1,5 +1,0 @@
-c693fa7753176ba1bb34dc55196dff1575e9460f91d7dd5d3ac9ec6e044e16cc  Fasto-Setup-v1.0.0.exe
-2cde03a80d63d21748474c21bae5462cf588c4f297d53653cf3ae70ec14d0a33  Fasto-Windows-x86_64.zip
-fed7ae4ece90f8f541e78a3211328c6d76c2675dafc1ce07bea0c89668f13176  Fasto-Linux-amd64.deb
-87d5de951ad2907a9cfba640cde6413ad9508c313a616262f9423f1ea91e8836  Fasto-Linux-x86_64.tar.gz
-91666c24e5dafaf32f244e71c5f46a4475d46afa280dc714bb1f5d24ad34d243  Fasto-Browser-Integration-Setup-v1.0.0.exe

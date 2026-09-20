@@ -13,14 +13,16 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.0">Latest Release</a>
+  <a href="https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.1-preview.1">Latest Preview Release</a>
   ·
   <a href="https://tanzeel0hussain.github.io/Fasto/">Website</a>
 </p>
 
-## Fasto v1.0.0
+## Fasto v1.0.1-preview.1
 
-Fasto v1.0.0 is available for **Linux x86_64** and **Windows x86_64**.
+The latest reliability update is available as a **public preview** for **Ubuntu 24.04 x86_64** and **Windows x86_64**. Installer filenames and embedded app version fields still say `1.0.0`; the release tag identifies the updated build.
+
+Close existing Fasto instances and back up download history before testing. This preview uses the existing Fasto data directory.
 
 ## Download
 
@@ -28,18 +30,19 @@ Fasto v1.0.0 is available for **Linux x86_64** and **Windows x86_64**.
 
 Recommended installer:
 
-- [Fasto-Setup-v1.0.0.exe](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Setup-v1.0.0.exe)
-- [Installer SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Setup-v1.0.0.exe.sha256)
+- [Fasto-Setup-v1.0.0.exe](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Setup-v1.0.0.exe)
+- [Installer SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/SHA256SUMS.txt)
 
 Portable package:
 
-- [Fasto-Windows-x86_64.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Windows-x86_64.zip)
-- [Portable ZIP SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Windows-x86_64.zip.sha256)
+- [Fasto-Windows-x86_64.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Windows-x86_64.zip)
+- [Portable ZIP SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/SHA256SUMS.txt)
 
 ### Linux
 
-- [Fasto-Linux-x86_64.tar.gz](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Linux-x86_64.tar.gz)
-- [Linux SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.0/Fasto-Linux-x86_64.tar.gz.sha256)
+- [Fasto-Linux-amd64.deb](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Linux-amd64.deb) — Ubuntu 24.04 x64 installer
+- [Fasto-Linux-x86_64.tar.gz](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Linux-x86_64.tar.gz)
+- [Linux SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/SHA256SUMS.txt)
 
 ## Features
 
@@ -71,40 +74,31 @@ Fasto-Windows-x86_64.zip
 
 ## Linux installation
 
-### 1. Download
+### Ubuntu 24.04 x64 package
 
-Download the Linux archive and checksum from the [Fasto v1.0.0 release](https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.0).
-
-### 2. Verify
+Download `Fasto-Linux-amd64.deb` from the [latest preview release](https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.1-preview.1), then run:
 
 ```bash
-sha256sum -c Fasto-Linux-x86_64.tar.gz.sha256
+sudo apt install ./Fasto-Linux-amd64.deb
+fasto-private-test
 ```
 
-Expected result:
+The current preview's launcher is named **Fasto Private Test**.
 
-```text
-Fasto-Linux-x86_64.tar.gz: OK
-```
+### Portable archive
 
-### 3. Extract
+Download `Fasto-Linux-x86_64.tar.gz` and `SHA256SUMS.txt` into the same folder. Verify the downloaded archive:
 
 ```bash
+grep '  Fasto-Linux-x86_64.tar.gz$' SHA256SUMS.txt | sha256sum -c -
 tar -xzf Fasto-Linux-x86_64.tar.gz
 cd Fasto-Linux-x86_64
+./fasto
 ```
 
-### 4. Install
+Keep the complete extracted folder together. This archive does not contain an `install.sh` script.
 
-```bash
-./install.sh
-```
-
-### 5. Launch
-
-```bash
-fasto
-```
+For optional native browser integration, run `python3 register-browser-integration.py` from the portable folder in its permanent location. For the DEB installation, run `python3 /opt/fasto-private-test/register-browser-integration.py` as your normal desktop user, then restart the browser.
 
 ## Media requirements
 
@@ -132,19 +126,12 @@ sudo apt install python3 ffmpeg xdg-utils
 
 ## Browser extension
 
-The public manual extension ZIP has been withdrawn while Fasto moves to a proper browser-installer/store distribution flow.
+- [Windows Browser Integration installer](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Browser-Integration-Setup-v1.0.0.exe)
+- [Microsoft Edge Add-ons listing](https://microsoftedge.microsoft.com/addons/detail/bddofecekmcbaneoihhpnebiimcldjec)
 
-The planned production experience is:
+Install Fasto first, then run the Windows integration installer and select the supported browsers. The browser controls the final extension installation approval. Linux users can register the native host using the instructions above.
 
-1. Install Fasto on Windows or Linux.
-2. Run the Fasto Browser Integration installer.
-3. The installer detects supported Chromium browsers.
-4. The user explicitly approves extension installation in the browser.
-5. Fasto registers its native messaging bridge for browser-to-desktop handoff.
-
-For normal consumer Chrome/Edge installations, the browser extension must be published through the supported browser store/distribution channel before the installer can complete the browser-controlled installation flow.
-
-The private extension source remains in the Fasto source repository and is not published here.
+The integration installer uses supported store channels. **This desktop release does not update the Edge Store extension**; its available version may differ from the private test extension. The manual extension ZIP remains private.
 
 ## Platform support
 
@@ -154,7 +141,7 @@ The private extension source remains in the Fasto source repository and is not p
 | Windows x86_64 | ✅ Available |
 | macOS | ⏳ Planned |
 
-Linux v1.0.0 has been tested on Ubuntu Linux. Windows v1.0.0 is built and validated using a Windows x86_64 GitHub Actions runner; broader hardware/Windows-version testing will continue.
+This preview passed 24 automated regression tests, Windows/Linux builds, Linux startup checks and package integrity verification. Interactive Windows/browser behavior and every media site have not been exhaustively tested.
 
 ## Release contents
 
@@ -171,7 +158,7 @@ Release workflows include checks designed to detect:
 - known GitHub token patterns
 - private key markers
 
-The Linux package also completed clean extraction, dependency, installer, and checksum verification before publication.
+The published package hashes match the verified build. Full platform requirements and testing scope are included in the release notes.
 
 ## Website
 

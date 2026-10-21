@@ -70,3 +70,26 @@ cards.forEach((card) => {
     card.style.background = '';
   });
 });
+
+// Show the latest published version in the download eyebrow, fetched live
+// from the public GitHub Releases API so the site tracks releases without edits.
+(function () {
+  var el = document.getElementById('latest-version');
+  if (!el) return;
+  var repo = el.getAttribute('data-repo');
+  if (!repo) return;
+
+  fetch('https://api.github.com/repos/' + repo + '/releases/latest', {
+    headers: { Accept: 'application/vnd.github+json' },
+  })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data || !data.tag_name) {
+        el.textContent = 'FASTO';
+        return;
+      }
+      var tag = String(data.tag_name).replace(/^v/i, '');
+      el.textContent = 'FASTO v' + tag;
+    })
+    .catch(function () { el.textContent = 'FASTO'; });
+})();

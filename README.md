@@ -5,177 +5,108 @@
 </p>
 
 <p align="center">
-  <strong>Fast downloads. Less waiting.</strong>
+  <strong>Fast downloads. Less waiting.</strong><br>
+  A free download manager for Linux and Windows — multi-connection downloads, pause and resume, video grabbing, torrents and browser integration.
 </p>
 
 <p align="center">
-  A fast, lightweight desktop download manager for Linux and Windows with multi-connection transfers, resume support, media handling, and browser integration.
-</p>
-
-<p align="center">
-  <a href="https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.1-preview.1">Latest Preview Release</a>
+  <a href="https://github.com/Tanzeel0Hussain/Fasto/releases/latest"><strong>Download the latest release</strong></a>
   ·
   <a href="https://tanzeel0hussain.github.io/Fasto/">Website</a>
+  ·
+  <a href="https://chromewebstore.google.com/detail/nbpieehnohklopikjenojedfnpfnlnip">Chrome extension</a>
+  ·
+  <a href="https://microsoftedge.microsoft.com/addons/detail/bddofecekmcbaneoihhpnebiimcldjec">Edge extension</a>
 </p>
 
-## Fasto v1.0.1-preview.1
+<p align="center">
+  <img src="assets/screenshot.png" alt="The Fasto window with a sidebar of status and file categories, a toolbar, and a list of downloads with progress bars" width="860">
+</p>
 
-The latest reliability update is available as a **public preview** for **Ubuntu 24.04 x86_64** and **Windows x86_64**. Installer filenames and embedded app version fields still say `1.0.0`; the release tag identifies the updated build.
+## What's new in 1.1.0
 
-Close existing Fasto instances and back up download history before testing. This preview uses the existing Fasto data directory.
+- **Redesigned app** — sidebar with status and categories (with counts), labelled toolbar, coloured status, right-click menu, double-click to open.
+- **Torrents** — magnet links and `.torrent` files, with pause, resume and progress like any other download.
+- **Speed limit** — cap each download from 128 KB/s to 10 MB/s.
+- **Clipboard watch** — copy a link to a file or a magnet link and Fasto offers to download it.
+- **Browser extension fixed** — Fasto connects itself to your browsers on launch; browser downloads keep their real file names.
+- **Clear errors** — expired or forbidden links explain what to do.
 
 ## Download
 
-### Windows
+| Platform | File |
+|---|---|
+| **Windows 10/11 x64** — installer | [Fasto-Setup-v1.0.0.exe](https://github.com/Tanzeel0Hussain/Fasto/releases/latest/download/Fasto-Setup-v1.0.0.exe) |
+| Windows x64 — portable | [Fasto-Windows-x86_64.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/latest/download/Fasto-Windows-x86_64.zip) |
+| **Ubuntu 24.04 / Debian x64** — package | [Fasto-Linux-amd64.deb](https://github.com/Tanzeel0Hussain/Fasto/releases/latest/download/Fasto-Linux-amd64.deb) |
+| Linux x64 — portable | [Fasto-Linux-x86_64.tar.gz](https://github.com/Tanzeel0Hussain/Fasto/releases/latest/download/Fasto-Linux-x86_64.tar.gz) |
+| Checksums | [SHA256SUMS.txt](https://github.com/Tanzeel0Hussain/Fasto/releases/latest/download/SHA256SUMS.txt) |
 
-Recommended installer:
-
-- [Fasto-Setup-v1.0.0.exe](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Setup-v1.0.0.exe)
-- [Installer SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/SHA256SUMS.txt)
-
-Portable package:
-
-- [Fasto-Windows-x86_64.zip](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Windows-x86_64.zip)
-- [Portable ZIP SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/SHA256SUMS.txt)
-
-### Linux
-
-- [Fasto-Linux-amd64.deb](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Linux-amd64.deb) — Ubuntu 24.04 x64 installer
-- [Fasto-Linux-x86_64.tar.gz](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Linux-x86_64.tar.gz)
-- [Linux SHA256](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/SHA256SUMS.txt)
+Installer file names say `v1.0.0` (the wrapper name is fixed); the app inside is the release version. Fasto checks for new versions at startup.
 
 ## Features
 
-- ⚡ Multi-connection HTTP/HTTPS download engine
-- ⏯️ Pause and resume support
-- 🔄 Recovery for interrupted transfers
-- 📦 Queue and download management
-- 🎬 HLS and DASH media handling
-- 🌐 Browser integration architecture
-- 🧩 Bundled yt-dlp media resolver
-- 🖥️ Native desktop builds for Linux and Windows
-- 💾 Persistent download/history data
-- 🛡️ Release privacy checks for known private source-path/token markers
+- **Multi-connection engine** — up to 32 parallel segments, falls back to one connection when a server needs it.
+- **Pause, resume, recover** — continue later, even after a restart; dropped connections and rate limits are retried.
+- **Video grabber** — "Download this video" on supported pages; pick a quality, audio and video are merged with FFmpeg. Uses the bundled yt-dlp.
+- **HLS / DASH** streams.
+- **Torrents & magnet links.**
+- **Browser takeover** — downloads started in Chrome, Edge or Brave move to Fasto.
+- **Speed limit, clipboard watch, category folders** (Videos, Music, Documents, Compressed, Programs).
+- **Queue & bulk control** — choose how many run at once; resume all, pause all.
+- **Private by design** — no ads, no account, no analytics.
 
-## Windows installation
+## Install
 
-1. Download `Fasto-Setup-v1.0.0.exe`.
-2. Run the installer.
-3. Follow the setup wizard.
-4. Launch Fasto from the Start menu or desktop shortcut if selected.
+### Windows
 
-The Windows installer is built as a per-user installation and does not require administrator privileges by default.
+1. Download and run `Fasto-Setup-v1.0.0.exe`. It installs for your user only — no administrator rights needed.
+2. Start Fasto from the Start menu.
+3. Optional: install the Chrome or Edge extension (links above).
 
-For portable use, download and extract:
+Portable: extract `Fasto-Windows-x86_64.zip` and run `fasto.exe`. Keep the whole folder together.
 
-```text
-Fasto-Windows-x86_64.zip
-```
-
-## Linux installation
-
-### Ubuntu 24.04 x64 package
-
-Download `Fasto-Linux-amd64.deb` from the [latest preview release](https://github.com/Tanzeel0Hussain/Fasto/releases/tag/v1.0.1-preview.1), then run:
+### Ubuntu / Debian
 
 ```bash
 sudo apt install ./Fasto-Linux-amd64.deb
-fasto-private-test
+sudo apt install ffmpeg        # for video merging
 ```
 
-The current preview's launcher is named **Fasto Private Test**.
+Start **Fasto** from your app menu. On first start it connects itself to Chrome, Chromium, Brave, Edge, Vivaldi and Opera; then install the extension and restart the browser. Fasto is registered as an app for magnet links, so your browser can hand them to it.
 
-### Portable archive
-
-Download `Fasto-Linux-x86_64.tar.gz` and `SHA256SUMS.txt` into the same folder. Verify the downloaded archive:
+### Linux portable
 
 ```bash
 grep '  Fasto-Linux-x86_64.tar.gz$' SHA256SUMS.txt | sha256sum -c -
 tar -xzf Fasto-Linux-x86_64.tar.gz
-cd Fasto-Linux-x86_64
-./fasto
+cd Fasto-Linux-x86_64 && ./fasto
 ```
 
-Keep the complete extracted folder together. This archive does not contain an `install.sh` script.
+Needs GTK 3, SQLite 3, OpenSSL 3, Python 3 and xdg-utils (present on most desktops). Keep the folder in a permanent place: the browser integration points to it.
 
-For optional native browser integration, run `python3 register-browser-integration.py` from the portable folder in its permanent location. For the DEB installation, run `python3 /opt/fasto-private-test/register-browser-integration.py` as your normal desktop user, then restart the browser.
+## Requirements
 
-## Media requirements
+| | Windows | Linux |
+|---|---|---|
+| Architecture | x86_64 | x86_64 |
+| Video merging | FFmpeg / ffprobe on `PATH` | `sudo apt install ffmpeg` |
+| Browser integration | Chrome, Edge, Brave (Chromium-based) | Chrome, Chromium, Brave, Edge, Vivaldi, Opera |
 
-Fasto bundles yt-dlp.
-
-For full media merge/remux/probe functionality, FFmpeg and ffprobe should be available.
-
-### Linux
-
-- Linux x86_64
-- Python 3.10+
-- FFmpeg / ffprobe
-- xdg-utils
-
-Ubuntu/Debian:
-
-```bash
-sudo apt install python3 ffmpeg xdg-utils
-```
-
-### Windows
-
-- Windows x86_64
-- FFmpeg / ffprobe on PATH for full media functionality
-
-## Browser extension
-
-- [Windows Browser Integration installer](https://github.com/Tanzeel0Hussain/Fasto/releases/download/v1.0.1-preview.1/Fasto-Browser-Integration-Setup-v1.0.0.exe)
-- [Microsoft Edge Add-ons listing](https://microsoftedge.microsoft.com/addons/detail/bddofecekmcbaneoihhpnebiimcldjec)
-
-Install Fasto first, then run the Windows integration installer and select the supported browsers. The browser controls the final extension installation approval. Linux users can register the native host using the instructions above.
-
-The integration installer uses supported store channels. **This desktop release does not update the Edge Store extension**; its available version may differ from the private test extension. The manual extension ZIP remains private.
-
-## Platform support
-
-| Platform | Status |
-|---|---|
-| Linux x86_64 | ✅ Available |
-| Windows x86_64 | ✅ Available |
-| macOS | ⏳ Planned |
-
-This preview passed 24 automated regression tests, Windows/Linux builds, Linux startup checks and package integrity verification. Interactive Windows/browser behavior and every media site have not been exhaustively tested.
-
-## Release contents
-
-The public release contains compiled Fasto binaries/installers, checksums, runtime files, bundled yt-dlp, and required license notices.
-
-The private Fasto application/core source code is not published in this public repository.
+macOS is not supported yet.
 
 ## Security & privacy
 
-Release workflows include checks designed to detect:
+- Release packages are built by GitHub Actions and scanned for private paths, tokens and keys before publishing.
+- Every release lists SHA-256 checksums in `SHA256SUMS.txt`.
+- Fasto only contacts the sites you download from and GitHub (update checks, video tooling).
 
-- known private repository/path markers
-- local development username/path markers
-- known GitHub token patterns
-- private key markers
-
-The published package hashes match the verified build. Full platform requirements and testing scope are included in the release notes.
-
-## Website
-
-**https://tanzeel0hussain.github.io/Fasto/**
-
-## Releases
-
-**https://github.com/Tanzeel0Hussain/Fasto/releases**
+This repository hosts the website and release binaries. Fasto's application source is not published here.
 
 ## License
 
-Fasto is distributed under the included **Fasto Download Manager Proprietary License**.
-
-Third-party components remain subject to their own licenses and notices included with release packages.
+Fasto is distributed under the included **Fasto Download Manager Proprietary License**. Third-party components (such as yt-dlp) remain under their own licenses, included in the release packages.
 
 ---
 
-<p align="center">
-  <strong>Fasto — Download faster on Linux and Windows.</strong>
-</p>
+<p align="center"><strong>Fasto — Download faster on Linux and Windows.</strong></p>

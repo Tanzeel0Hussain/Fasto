@@ -324,10 +324,11 @@ h2 { margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.12; letter-s
 .demo-play::after { content: ""; position: absolute; left: 26px; top: 20px; border-style: solid; border-width: 12px 0 12px 18px; border-color: transparent transparent transparent #fff; }
 
 .demo-grab { position: absolute; right: 14px; top: 14px; display: grid; justify-items: end; gap: 6px; }
-.demo-grab strong { padding: 8px 14px; border-radius: 10px; background: #c4b5fd; color: #1e1b4b; font-size: 13px; }
+.demo-grab strong { padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #4f8cff, #3b6fe0 55%, #35b8e0); color: #fff; font-size: 13px; box-shadow: 0 6px 18px rgba(15,23,42,.45); }
 .demo-menu { display: grid; gap: 4px; padding: 8px; min-width: 240px; border: 1px solid var(--border); border-radius: 12px; background: rgba(15,23,42,.96); }
 .demo-menu span { padding: 8px 10px; border-radius: 8px; font-size: 13px; background: var(--surface); }
 .demo-menu span:first-child { background: rgba(79,140,255,.25); }
+.demo-menu span.demo-audio { background: transparent; color: #c4b5fd; border-top: 1px solid var(--border); border-radius: 0; }
 
 /* Steps */
 

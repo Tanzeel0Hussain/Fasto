@@ -23,14 +23,15 @@
   <img src="assets/screenshot.png" alt="The Fasto window with a sidebar of status and file categories, a toolbar, and a list of downloads with progress bars" width="860">
 </p>
 
-## What's new in 1.1.0
+## What's new in 1.2.0
 
-- **Redesigned app** — sidebar with status and categories (with counts), labelled toolbar, coloured status, right-click menu, double-click to open.
-- **Torrents** — magnet links and `.torrent` files, with pause, resume and progress like any other download.
-- **Speed limit** — cap each download from 128 KB/s to 10 MB/s.
-- **Clipboard watch** — copy a link to a file or a magnet link and Fasto offers to download it.
-- **Browser extension fixed** — Fasto connects itself to your browsers on launch; browser downloads keep their real file names.
-- **Clear errors** — expired or forbidden links explain what to do.
+- **Download audio as MP3** — straight from the video menu.
+- **Downloads behind a sign-in** — your browser session goes with each download, so files from sites you're logged in to work in Fasto too.
+- **Download all links** — pick files from a page in a list and send them to the queue at once.
+- **New extension popup** — connection status, capture and video-button switches, videos on the page.
+- **Alt+click** a link to keep that download in the browser.
+
+Also in 1.1: redesigned app, torrents and magnet links, speed limit, clipboard watch, clear error messages.
 
 ## Download
 
@@ -48,10 +49,11 @@ Installer file names say `v1.0.0` (the wrapper name is fixed); the app inside is
 
 - **Multi-connection engine** — up to 32 parallel segments, falls back to one connection when a server needs it.
 - **Pause, resume, recover** — continue later, even after a restart; dropped connections and rate limits are retried.
-- **Video grabber** — "Download this video" on supported pages; pick a quality, audio and video are merged with FFmpeg. Uses the bundled yt-dlp.
+- **Video grabber** — "Download this video" on supported pages; pick a quality, or **download the audio as MP3**. Uses the bundled yt-dlp and FFmpeg.
 - **HLS / DASH** streams.
 - **Torrents & magnet links.**
-- **Browser takeover** — downloads started in Chrome, Edge or Brave move to Fasto.
+- **Browser takeover** — downloads started in Chrome, Edge or Brave move to Fasto, with your sign-in, so protected downloads work. Alt+click to skip.
+- **Download all links** — from a page or a selection, chosen in a list.
 - **Speed limit, clipboard watch, category folders** (Videos, Music, Documents, Compressed, Programs).
 - **Queue & bulk control** — choose how many run at once; resume all, pause all.
 - **Private by design** — no ads, no account, no analytics.

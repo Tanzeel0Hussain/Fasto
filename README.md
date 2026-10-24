@@ -23,6 +23,11 @@
   <img src="assets/screenshot.png" alt="The Fasto window with a sidebar of status and file categories, a toolbar, and a list of downloads with progress bars" width="860">
 </p>
 
+## What's new in 1.3.0
+
+- **One-click VPN** — a VPN button next to search. Turn it on and Fasto connects to Cloudflare's free WARP network by itself, so sites blocked on your network download again. No sign-up, nothing else to install.
+- Clearer messages when a site is blocked or a link only works from your browser's VPN.
+
 ## What's new in 1.2.0
 
 - **Download audio as MP3** — straight from the video menu.
@@ -54,6 +59,7 @@ Installer file names say `v1.0.0` (the wrapper name is fixed); the app inside is
 - **Torrents & magnet links.**
 - **Browser takeover** — downloads started in Chrome, Edge or Brave move to Fasto, with your sign-in, so protected downloads work. Alt+click to skip.
 - **Download all links** — from a page or a selection, chosen in a list.
+- **One-click VPN** — free Cloudflare WARP built in, for sites blocked on your network.
 - **Speed limit, clipboard watch, category folders** (Videos, Music, Documents, Compressed, Programs).
 - **Queue & bulk control** — choose how many run at once; resume all, pause all.
 - **Private by design** — no ads, no account, no analytics.

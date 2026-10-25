@@ -23,6 +23,13 @@
   <img src="assets/screenshot.png" alt="The Fasto window with a sidebar of status and file categories, a toolbar, and a list of downloads with progress bars" width="860">
 </p>
 
+## What's new in 1.4.0
+
+- **VPN window**: 8 countries with no sign-up, speed bars, Automatic picks the fastest, and your own servers (WireGuard, subscription links, paid proxies). Sites that don't need the VPN keep full speed.
+- **Videos play while they download**, and switching VPN country never cuts a download.
+- **New Settings**: start at login, folders by type or site, browser capture rules, system/no/manual proxy, Low/Medium/High traffic modes, antivirus check, torrent options, notifications, battery and more.
+- Opens instantly, and the download list works like a file manager (arrow keys, Shift, Ctrl).
+
 ## What's new in 1.3.0
 
 - **One-click VPN** — a VPN button next to search. Turn it on and Fasto connects to Cloudflare's free WARP network by itself, so sites blocked on your network download again. No sign-up, nothing else to install.
